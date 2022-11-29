@@ -30,8 +30,10 @@ namespace SpuareChaserGame
         SoundPlayer playerHONK = new SoundPlayer(Properties.Resources.Horn_Honk_SoundBible_com_1634776698);
         SoundPlayer playerSOS = new SoundPlayer(Properties.Resources.sos_morse_code_daniel_simion);
 
-        int pointXSpeed = -6;
-        int pointYSpeed = 6;
+        int pointXSpeed = -3;
+        int pointYSpeed = -5;
+        int speedXSpeed = 9;
+        int speedYSpeed = 8;
 
         int player1Speed = 4;
         int player2Speed = 4;
@@ -49,7 +51,7 @@ namespace SpuareChaserGame
         SolidBrush yellowBrush = new SolidBrush(Color.Yellow);
         SolidBrush greenBrush = new SolidBrush(Color.Green);
         SolidBrush whiteBrush = new SolidBrush(Color.White);
-        Pen drawpen = new Pen(Color.Red, 5);
+        Pen drawpen = new Pen(Color.MediumVioletRed, 5);
         public Form1()
         {
             InitializeComponent();
@@ -260,6 +262,27 @@ namespace SpuareChaserGame
             else if (point.X > 600)
             {
                 pointXSpeed *= -1;
+            }
+
+            //move speed all over the place
+            speed.X += speedXSpeed;
+            speed.Y += speedYSpeed;
+
+            if (speed.Y < 0 || speed.Y > this.Height - speed.Height)
+            {
+                speedYSpeed *= -1;  // or: ballYSpeed = -ballYSpeed; 
+            }
+            if (speed.Y > 400)
+            {
+                speedYSpeed *= -1;
+            }
+            if (speed.X < 0)
+            {
+                speedXSpeed *= -1;
+            }
+            else if (speed.X > 600)
+            {
+                speedXSpeed *= -1;
             }
             Refresh();
         }
