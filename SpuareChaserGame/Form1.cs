@@ -20,6 +20,7 @@ namespace SpuareChaserGame
         Rectangle player2 = new Rectangle(550, 200, 20, 20);
         Rectangle point = new Rectangle(175, 200, 10, 10);
         Rectangle speed = new Rectangle(345, 350, 10, 10);
+        Rectangle losepoint = new Rectangle(126, 300, 15, 15);
         Rectangle border = new Rectangle(1, 1, 600, 400);
 
         int player1Score = 0;
@@ -34,9 +35,15 @@ namespace SpuareChaserGame
         int pointYSpeed = -5;
         int speedXSpeed = 9;
         int speedYSpeed = 8;
+        int losepointXSpeed = 5;
+        int losepointYSpeed = 5;
+
+        int maxscore = 5;
 
         int player1Speed = 4;
         int player2Speed = 4;
+
+        string gameState = "Starting";
 
         bool wDown = false;
         bool sDown = false;
@@ -51,10 +58,15 @@ namespace SpuareChaserGame
         SolidBrush yellowBrush = new SolidBrush(Color.Yellow);
         SolidBrush greenBrush = new SolidBrush(Color.Green);
         SolidBrush whiteBrush = new SolidBrush(Color.White);
+        SolidBrush pinkBrush = new SolidBrush(Color.Pink);
         Pen drawpen = new Pen(Color.MediumVioletRed, 5);
         public Form1()
         {
             InitializeComponent();
+            playButton.Enabled = true;
+            exitButton.Enabled = true;
+            stupidmodeButton.Enabled = true;
+            gameState = "Starting";
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
@@ -125,11 +137,13 @@ namespace SpuareChaserGame
             e.Graphics.FillRectangle(greenBrush, player2);
             e.Graphics.FillRectangle(yellowBrush, speed);
             e.Graphics.FillRectangle(whiteBrush, point);
+            e.Graphics.FillRectangle(pinkBrush, losepoint);
             e.Graphics.DrawRectangle(drawpen, 0, 0, 600, 400);
         }
 
         private void gameTimer_Tick(object sender, EventArgs e)
         {
+            gameState = "Running";
             //move player 1 
             if (wDown == true && player1.Y > 0)
             {
@@ -141,7 +155,7 @@ namespace SpuareChaserGame
                 player1.Y += player1Speed;
             }
 
-            if (dDown == true && player1.X < this.Width - player2.Width)
+            if (dDown == true && player1.X < this.Width - player1.Width)
             {
                 player1.X += player1Speed;
             }
@@ -171,35 +185,37 @@ namespace SpuareChaserGame
                 player2.X -= player2Speed;
             }
             // check score and stop game if either player is at 10
-            if (player1Score == 10)
+            if (player1Score == (maxscore))
             {
                 playerHONK.Play();
                 gameTimer.Enabled = false;
                 winLabel.Visible = true;
-                winLabel.Text = "Player 1 Wins!!";
+                winLabel.Text = "Gameover: Player 1 Wins!!";
                 this.Refresh();
                 Thread.Sleep(4000);
-                winLabel.Text = "bye bye";
+                winLabel.Text = "play again?";
                 playerBWOWWW.Play();
                 this.Refresh();
                 Thread.Sleep(400);
                 playerBWOWWW.Play();
-                Application.Exit();
+                gameState = "Over";
+                gameTimer.Enabled = false;
             }
-            else if (player2Score == 10)
+            else if (player2Score == (maxscore))
             {
                 playerSOS.Play();
                 gameTimer.Enabled = false;
                 winLabel.Visible = true;
-                winLabel.Text = "Player 2 Wins!!";
+                winLabel.Text = "Gameover: Player 2 Wins!!";
                 this.Refresh();
                 Thread.Sleep(4000);
-                winLabel.Text = "bye bye";
+                winLabel.Text = "play again?";
                 playerBWOWWW.Play();
                 this.Refresh();
                 Thread.Sleep(400);
                 playerBWOWWW.Play();
-                Application.Exit();
+                gameState = "Over";
+                gameTimer.Enabled = false;
             }
 
             //if you hit point you gain point
@@ -242,7 +258,26 @@ namespace SpuareChaserGame
                 player2Speed++;
                 playerbleep.Play();
             }
-
+            if (player1.IntersectsWith(losepoint))
+            {
+                int xlose = randgen.Next(0, 580);
+                int ylose = randgen.Next(0, 380);
+                losepoint.X = xlose;
+                losepoint.Y = ylose;
+                player1Score--;
+                player1Speed--;
+                pointsPlayer1Label.Text = $"{player1Score}";
+            }
+            if (player2.IntersectsWith(losepoint))
+            {
+                int xlose = randgen.Next(0, 580);
+                int ylose = randgen.Next(0, 380);
+                losepoint.X = xlose;
+                losepoint.Y = ylose;
+                player2Score--;
+                player2Speed--;
+                pointsPlayer2Label.Text = $"{player2Score}";
+            }
             //move point all over the place
             point.X += pointXSpeed;
             point.Y += pointYSpeed;
@@ -284,7 +319,106 @@ namespace SpuareChaserGame
             {
                 speedXSpeed *= -1;
             }
+
+            losepoint.X += losepointXSpeed;
+            losepoint.Y += losepointYSpeed;
+
+            if (losepoint.Y < 0 || losepoint.Y > this.Height - losepoint.Height)
+            {
+                losepointYSpeed *= -1;  // or: ballYSpeed = -ballYSpeed; 
+            }
+            if (losepoint.Y > 400)
+            {
+                losepointYSpeed *= -1;
+            }
+            if (losepoint.X < 0)
+            {
+                losepointXSpeed *= -1;
+            }
+            else if (losepoint.X > 600)
+            {
+                losepointXSpeed *= -1;
+            }
+
+            if (gameState == "Over")
+            {
+                playButton.Enabled = true;
+                exitButton.Enabled = true;
+                playButton.Visible = true;
+                exitButton.Visible = true;
+                stupidmodeButton.Enabled = true;
+                stupidmodeButton.Visible = true;
+                gameTimer.Stop();
+            }
+            else if (gameState == "Running")
+            {
+                playButton.Enabled = false;
+                exitButton.Enabled = false;
+                playButton.Visible = false;
+                exitButton.Visible = false;
+                stupidmodeButton.Enabled = false;
+                stupidmodeButton.Visible = false;
+                gameTimer.Start();
+            }
+
             Refresh();
+        }
+
+        private void playButton_Click(object sender, EventArgs e)
+        {
+            player1Speed = 4;
+            player2Speed = 4;
+            player1Score = 0;
+            player2Score = 0;
+            losepointXSpeed = 5;
+            losepointYSpeed = 5;
+            maxscore = 5;
+            player1.X = 50;
+            player1.Y = 200;
+            player2.X = 550;
+            player2.Y = 200;
+            gameState = "Running";
+            gameTimer.Start();
+            playButton.Enabled = false;
+            exitButton.Enabled = false;
+            playButton.Visible = false;
+            exitButton.Visible = false;
+            stupidmodeButton.Enabled = false;
+            stupidmodeButton.Visible = false;
+            winLabel.Text = "";
+            this.Focus();
+        }
+
+        private void exitButton_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void stupidmodeButton_Click(object sender, EventArgs e)
+        {
+            player1Speed = 40;
+            player2Speed = 40;
+            maxscore = 50;
+            losepointXSpeed = 15;
+            losepointYSpeed = 15;
+            player1Score = 0;
+            player2Score = 0;
+            player1.X = 50;
+            player1.Y = 200;
+            player2.X = 550;
+            player2.Y = 200;
+            gameState = "Running";
+            gameTimer.Start();
+            playButton.Enabled = false;
+            exitButton.Enabled = false;
+            playButton.Visible = false;
+            exitButton.Visible = false;
+            stupidmodeButton.Enabled = false;
+            stupidmodeButton.Visible = false;
+            winLabel.Text = "FIRST TO 50 WINS!";
+            this.Refresh();
+            Thread.Sleep(10);
+            this.Focus();
         }
     }
 }

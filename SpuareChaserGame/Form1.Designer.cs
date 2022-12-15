@@ -33,6 +33,9 @@
             this.pointsPlayer2Label = new System.Windows.Forms.Label();
             this.gameTimer = new System.Windows.Forms.Timer(this.components);
             this.winLabel = new System.Windows.Forms.Label();
+            this.playButton = new System.Windows.Forms.Button();
+            this.exitButton = new System.Windows.Forms.Button();
+            this.stupidmodeButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // pointsPlayer1Label
@@ -57,7 +60,6 @@
             // 
             // gameTimer
             // 
-            this.gameTimer.Enabled = true;
             this.gameTimer.Interval = 20;
             this.gameTimer.Tick += new System.EventHandler(this.gameTimer_Tick);
             // 
@@ -70,12 +72,46 @@
             this.winLabel.Size = new System.Drawing.Size(0, 13);
             this.winLabel.TabIndex = 2;
             // 
+            // playButton
+            // 
+            this.playButton.Location = new System.Drawing.Point(185, 261);
+            this.playButton.Name = "playButton";
+            this.playButton.Size = new System.Drawing.Size(89, 23);
+            this.playButton.TabIndex = 3;
+            this.playButton.Text = "PLAY";
+            this.playButton.UseVisualStyleBackColor = true;
+            this.playButton.Click += new System.EventHandler(this.playButton_Click);
+            // 
+            // exitButton
+            // 
+            this.exitButton.Location = new System.Drawing.Point(239, 290);
+            this.exitButton.Name = "exitButton";
+            this.exitButton.Size = new System.Drawing.Size(89, 23);
+            this.exitButton.TabIndex = 4;
+            this.exitButton.Text = "EXIT";
+            this.exitButton.UseVisualStyleBackColor = true;
+            this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
+            // 
+            // stupidmodeButton
+            // 
+            this.stupidmodeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.stupidmodeButton.Location = new System.Drawing.Point(296, 261);
+            this.stupidmodeButton.Name = "stupidmodeButton";
+            this.stupidmodeButton.Size = new System.Drawing.Size(89, 23);
+            this.stupidmodeButton.TabIndex = 5;
+            this.stupidmodeButton.Text = "STUPID MODE";
+            this.stupidmodeButton.UseVisualStyleBackColor = true;
+            this.stupidmodeButton.Click += new System.EventHandler(this.stupidmodeButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(600, 400);
+            this.Controls.Add(this.stupidmodeButton);
+            this.Controls.Add(this.exitButton);
+            this.Controls.Add(this.playButton);
             this.Controls.Add(this.winLabel);
             this.Controls.Add(this.pointsPlayer2Label);
             this.Controls.Add(this.pointsPlayer1Label);
@@ -98,6 +134,9 @@
         private System.Windows.Forms.Label pointsPlayer2Label;
         private System.Windows.Forms.Timer gameTimer;
         private System.Windows.Forms.Label winLabel;
+        private System.Windows.Forms.Button playButton;
+        private System.Windows.Forms.Button exitButton;
+        private System.Windows.Forms.Button stupidmodeButton;
     }
 }
 
