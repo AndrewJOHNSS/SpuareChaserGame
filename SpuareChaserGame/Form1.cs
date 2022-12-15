@@ -66,6 +66,9 @@ namespace SpuareChaserGame
             playButton.Enabled = true;
             exitButton.Enabled = true;
             stupidmodeButton.Enabled = true;
+            ohnoButton.Enabled = true;
+            verystupidButton.Enabled = true;
+            maximumstupidButton.Enabled = true;
             gameState = "Starting";
         }
 
@@ -348,6 +351,12 @@ namespace SpuareChaserGame
                 exitButton.Visible = true;
                 stupidmodeButton.Enabled = true;
                 stupidmodeButton.Visible = true;
+                ohnoButton.Enabled = true;
+                ohnoButton.Visible = true;
+                verystupidButton.Enabled = true;
+                verystupidButton.Visible = true;
+                maximumstupidButton.Visible = true;
+                maximumstupidButton.Enabled = true;
                 gameTimer.Stop();
             }
             else if (gameState == "Running")
@@ -358,6 +367,12 @@ namespace SpuareChaserGame
                 exitButton.Visible = false;
                 stupidmodeButton.Enabled = false;
                 stupidmodeButton.Visible = false;
+                ohnoButton.Enabled = false;
+                ohnoButton.Visible = false;
+                verystupidButton.Enabled = false;
+                verystupidButton.Visible = false;
+                maximumstupidButton.Visible = false;
+                maximumstupidButton.Enabled = false;
                 gameTimer.Start();
             }
 
@@ -385,6 +400,12 @@ namespace SpuareChaserGame
             exitButton.Visible = false;
             stupidmodeButton.Enabled = false;
             stupidmodeButton.Visible = false;
+            ohnoButton.Enabled = false;
+            ohnoButton.Visible = false;
+            verystupidButton.Enabled = false;
+            verystupidButton.Visible = false;
+            maximumstupidButton.Visible = false;
+            maximumstupidButton.Enabled = false;
             winLabel.Text = "";
             this.Focus();
         }
@@ -415,7 +436,112 @@ namespace SpuareChaserGame
             exitButton.Visible = false;
             stupidmodeButton.Enabled = false;
             stupidmodeButton.Visible = false;
+            ohnoButton.Enabled = false;
+            ohnoButton.Visible = false;
+            verystupidButton.Enabled = false;
+            verystupidButton.Visible = false;
+            maximumstupidButton.Visible = false;
+            maximumstupidButton.Enabled = false;
             winLabel.Text = "FIRST TO 50 WINS!";
+            this.Refresh();
+            Thread.Sleep(10);
+            this.Focus();
+        }
+
+        private void ohnoButton_Click(object sender, EventArgs e)
+        {
+            player1Speed = 90;
+            player2Speed = 90;
+            maxscore = 100;
+            losepointXSpeed = 25;
+            losepointYSpeed = 25;
+            player1Score = 0;
+            player2Score = 0;
+            player1.X = 50;
+            player1.Y = 200;
+            player2.X = 550;
+            player2.Y = 200;
+            gameState = "Running";
+            gameTimer.Start();
+            playButton.Enabled = false;
+            exitButton.Enabled = false;
+            playButton.Visible = false;
+            exitButton.Visible = false;
+            stupidmodeButton.Enabled = false;
+            stupidmodeButton.Visible = false;
+            ohnoButton.Enabled = false;
+            ohnoButton.Visible = false;
+            verystupidButton.Enabled = false;
+            verystupidButton.Visible = false;
+            maximumstupidButton.Visible = false;
+            maximumstupidButton.Enabled = false;
+            winLabel.Text = "FIRST TO 100 WINS!";
+            this.Refresh();
+            Thread.Sleep(10);
+            this.Focus();
+        }
+
+        private void verystupidButton_Click(object sender, EventArgs e)
+        {
+            player1Speed = 120;
+            player2Speed = 120;
+            maxscore = 200;
+            losepointXSpeed = 30;
+            losepointYSpeed = 30;
+            player1Score = 0;
+            player2Score = 0;
+            player1.X = 50;
+            player1.Y = 200;
+            player2.X = 550;
+            player2.Y = 200;
+            gameState = "Running";
+            gameTimer.Start();
+            playButton.Enabled = false;
+            exitButton.Enabled = false;
+            playButton.Visible = false;
+            exitButton.Visible = false;
+            stupidmodeButton.Enabled = false;
+            stupidmodeButton.Visible = false;
+            ohnoButton.Enabled = false;
+            ohnoButton.Visible = false;
+            verystupidButton.Enabled = false;
+            verystupidButton.Visible = false;
+            maximumstupidButton.Visible = false;
+            maximumstupidButton.Enabled = false;
+            winLabel.Text = "FIRST TO 200 WINS!";
+            this.Refresh();
+            Thread.Sleep(10);
+            this.Focus();
+        }
+
+        private void maximumstupidButton_Click(object sender, EventArgs e)
+        {
+            player1Speed = 150;
+            player2Speed = 150;
+            maxscore = 1000;
+            losepointXSpeed = 50;
+            losepointYSpeed = 50;
+            player1Score = 0;
+            player2Score = 0;
+            player1.X = 50;
+            player1.Y = 200;
+            player2.X = 550;
+            player2.Y = 200;
+            gameState = "Running";
+            gameTimer.Start();
+            playButton.Enabled = false;
+            exitButton.Enabled = false;
+            playButton.Visible = false;
+            exitButton.Visible = false;
+            stupidmodeButton.Enabled = false;
+            stupidmodeButton.Visible = false;
+            ohnoButton.Enabled = false;
+            ohnoButton.Visible = false;
+            verystupidButton.Enabled = false;
+            verystupidButton.Visible = false;
+            maximumstupidButton.Visible = false;
+            maximumstupidButton.Enabled = false;
+            winLabel.Text = "FIRST TO 1000 WINS!";
             this.Refresh();
             Thread.Sleep(10);
             this.Focus();
