@@ -20,8 +20,8 @@ namespace SpuareChaserGame
         Rectangle player2 = new Rectangle(550, 200, 20, 20);
         Rectangle point = new Rectangle(175, 200, 10, 10);
         Rectangle speed = new Rectangle(345, 350, 10, 10);
-        Rectangle losepoint = new Rectangle(126, 300, 15, 15);
-        Rectangle border = new Rectangle(1, 1, 600, 400);
+        Rectangle losepoint = new Rectangle(126, 300, 20, 20);
+        Rectangle border = new Rectangle(5, 5, 600, 400);
 
         int player1Score = 0;
         int player2Score = 0;
@@ -35,7 +35,7 @@ namespace SpuareChaserGame
         int pointYSpeed = -5;
         int speedXSpeed = 9;
         int speedYSpeed = 8;
-        int losepointXSpeed = 5;
+        int losepointXSpeed = 7;
         int losepointYSpeed = 5;
 
         int maxscore = 5;
@@ -263,8 +263,8 @@ namespace SpuareChaserGame
             }
             if (player1.IntersectsWith(losepoint))
             {
-                int xlose = randgen.Next(0, 580);
-                int ylose = randgen.Next(0, 380);
+                int xlose = randgen.Next(0, 560);
+                int ylose = randgen.Next(0, 360);
                 losepoint.X = xlose;
                 losepoint.Y = ylose;
                 player1Score--;
@@ -273,8 +273,8 @@ namespace SpuareChaserGame
             }
             if (player2.IntersectsWith(losepoint))
             {
-                int xlose = randgen.Next(0, 580);
-                int ylose = randgen.Next(0, 380);
+                int xlose = randgen.Next(0, 560);
+                int ylose = randgen.Next(0, 360);
                 losepoint.X = xlose;
                 losepoint.Y = ylose;
                 player2Score--;
@@ -330,7 +330,7 @@ namespace SpuareChaserGame
             {
                 losepointYSpeed *= -1;  // or: ballYSpeed = -ballYSpeed; 
             }
-            if (losepoint.Y > 400)
+            if (losepoint.Y > 390)
             {
                 losepointYSpeed *= -1;
             }
@@ -338,7 +338,7 @@ namespace SpuareChaserGame
             {
                 losepointXSpeed *= -1;
             }
-            else if (losepoint.X > 600)
+            else if (losepoint.X > 590)
             {
                 losepointXSpeed *= -1;
             }
@@ -381,6 +381,8 @@ namespace SpuareChaserGame
 
         private void playButton_Click(object sender, EventArgs e)
         {
+            pointXSpeed = -3;
+            pointYSpeed = -5;
             player1Speed = 4;
             player2Speed = 4;
             player1Score = 0;
@@ -417,10 +419,12 @@ namespace SpuareChaserGame
 
         private void stupidmodeButton_Click(object sender, EventArgs e)
         {
+            pointXSpeed = -3;
+            pointYSpeed = -5;
             player1Speed = 40;
             player2Speed = 40;
             maxscore = 50;
-            losepointXSpeed = 15;
+            losepointXSpeed = 20;
             losepointYSpeed = 15;
             player1Score = 0;
             player2Score = 0;
@@ -450,10 +454,12 @@ namespace SpuareChaserGame
 
         private void ohnoButton_Click(object sender, EventArgs e)
         {
+            pointXSpeed = -3;
+            pointYSpeed = -5;
             player1Speed = 90;
             player2Speed = 90;
             maxscore = 100;
-            losepointXSpeed = 25;
+            losepointXSpeed = 30;
             losepointYSpeed = 25;
             player1Score = 0;
             player2Score = 0;
@@ -483,10 +489,12 @@ namespace SpuareChaserGame
 
         private void verystupidButton_Click(object sender, EventArgs e)
         {
+            pointXSpeed = -3;
+            pointYSpeed = -5;
             player1Speed = 120;
             player2Speed = 120;
             maxscore = 200;
-            losepointXSpeed = 30;
+            losepointXSpeed = 35;
             losepointYSpeed = 30;
             player1Score = 0;
             player2Score = 0;
@@ -516,11 +524,13 @@ namespace SpuareChaserGame
 
         private void maximumstupidButton_Click(object sender, EventArgs e)
         {
-            player1Speed = 150;
-            player2Speed = 150;
-            maxscore = 1000;
-            losepointXSpeed = 50;
-            losepointYSpeed = 50;
+            player1Speed = 1;
+            player2Speed = 1;
+            maxscore = 1000000;
+            losepointXSpeed = 41;
+            losepointYSpeed = 40;
+            pointXSpeed = -5;
+            pointYSpeed = -9;
             player1Score = 0;
             player2Score = 0;
             player1.X = 50;
@@ -541,7 +551,7 @@ namespace SpuareChaserGame
             verystupidButton.Visible = false;
             maximumstupidButton.Visible = false;
             maximumstupidButton.Enabled = false;
-            winLabel.Text = "FIRST TO 1000 WINS!";
+            winLabel.Text = "FIRST TO 1,000,000 WINS!";
             this.Refresh();
             Thread.Sleep(10);
             this.Focus();

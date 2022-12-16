@@ -44,6 +44,7 @@
             // pointsPlayer1Label
             // 
             this.pointsPlayer1Label.AutoSize = true;
+            this.pointsPlayer1Label.BackColor = System.Drawing.Color.Transparent;
             this.pointsPlayer1Label.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.pointsPlayer1Label.Location = new System.Drawing.Point(240, 9);
             this.pointsPlayer1Label.Name = "pointsPlayer1Label";
@@ -54,6 +55,7 @@
             // pointsPlayer2Label
             // 
             this.pointsPlayer2Label.AutoSize = true;
+            this.pointsPlayer2Label.BackColor = System.Drawing.Color.Transparent;
             this.pointsPlayer2Label.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.pointsPlayer2Label.Location = new System.Drawing.Point(329, 9);
             this.pointsPlayer2Label.Name = "pointsPlayer2Label";
@@ -68,21 +70,24 @@
             // 
             // winLabel
             // 
+            this.winLabel.BackColor = System.Drawing.Color.Transparent;
             this.winLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.winLabel.Location = new System.Drawing.Point(243, 54);
             this.winLabel.Name = "winLabel";
             this.winLabel.Size = new System.Drawing.Size(99, 75);
             this.winLabel.TabIndex = 2;
+            this.winLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // playButton
             // 
+            this.playButton.BackColor = System.Drawing.Color.LawnGreen;
             this.playButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.playButton.Location = new System.Drawing.Point(63, 261);
             this.playButton.Name = "playButton";
             this.playButton.Size = new System.Drawing.Size(89, 23);
             this.playButton.TabIndex = 3;
             this.playButton.Text = "PLAY NORMAL";
-            this.playButton.UseVisualStyleBackColor = true;
+            this.playButton.UseVisualStyleBackColor = false;
             this.playButton.Click += new System.EventHandler(this.playButton_Click);
             // 
             // exitButton
@@ -97,53 +102,58 @@
             // 
             // stupidmodeButton
             // 
+            this.stupidmodeButton.BackColor = System.Drawing.Color.ForestGreen;
             this.stupidmodeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.stupidmodeButton.Location = new System.Drawing.Point(158, 261);
             this.stupidmodeButton.Name = "stupidmodeButton";
             this.stupidmodeButton.Size = new System.Drawing.Size(89, 23);
             this.stupidmodeButton.TabIndex = 5;
             this.stupidmodeButton.Text = "STUPID MODE";
-            this.stupidmodeButton.UseVisualStyleBackColor = true;
+            this.stupidmodeButton.UseVisualStyleBackColor = false;
             this.stupidmodeButton.Click += new System.EventHandler(this.stupidmodeButton_Click);
             // 
             // ohnoButton
             // 
-            this.ohnoButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ohnoButton.BackColor = System.Drawing.Color.Gold;
+            this.ohnoButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ohnoButton.Location = new System.Drawing.Point(253, 260);
             this.ohnoButton.Name = "ohnoButton";
             this.ohnoButton.Size = new System.Drawing.Size(89, 23);
             this.ohnoButton.TabIndex = 6;
-            this.ohnoButton.Text = "OH NO";
-            this.ohnoButton.UseVisualStyleBackColor = true;
+            this.ohnoButton.Text = "OH NO MODE";
+            this.ohnoButton.UseVisualStyleBackColor = false;
             this.ohnoButton.Click += new System.EventHandler(this.ohnoButton_Click);
             // 
             // verystupidButton
             // 
+            this.verystupidButton.BackColor = System.Drawing.Color.OrangeRed;
             this.verystupidButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.verystupidButton.Location = new System.Drawing.Point(348, 259);
             this.verystupidButton.Name = "verystupidButton";
             this.verystupidButton.Size = new System.Drawing.Size(89, 23);
             this.verystupidButton.TabIndex = 8;
             this.verystupidButton.Text = "VERY STUPID MODE";
-            this.verystupidButton.UseVisualStyleBackColor = true;
+            this.verystupidButton.UseVisualStyleBackColor = false;
             this.verystupidButton.Click += new System.EventHandler(this.verystupidButton_Click);
             // 
             // maximumstupidButton
             // 
+            this.maximumstupidButton.BackColor = System.Drawing.Color.DarkRed;
             this.maximumstupidButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.maximumstupidButton.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.maximumstupidButton.Location = new System.Drawing.Point(443, 259);
             this.maximumstupidButton.Name = "maximumstupidButton";
             this.maximumstupidButton.Size = new System.Drawing.Size(89, 23);
             this.maximumstupidButton.TabIndex = 9;
             this.maximumstupidButton.Text = "MAXIMUM STUPID";
-            this.maximumstupidButton.UseVisualStyleBackColor = true;
+            this.maximumstupidButton.UseVisualStyleBackColor = false;
             this.maximumstupidButton.Click += new System.EventHandler(this.maximumstupidButton_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.ClientSize = new System.Drawing.Size(600, 400);
             this.Controls.Add(this.maximumstupidButton);
             this.Controls.Add(this.verystupidButton);
@@ -155,6 +165,7 @@
             this.Controls.Add(this.pointsPlayer2Label);
             this.Controls.Add(this.pointsPlayer1Label);
             this.DoubleBuffered = true;
+            this.ForeColor = System.Drawing.Color.Black;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
