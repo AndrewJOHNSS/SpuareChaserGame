@@ -20,7 +20,7 @@ namespace SpuareChaserGame
         Rectangle player2 = new Rectangle(550, 200, 20, 20);
         Rectangle point = new Rectangle(175, 200, 10, 10);
         Rectangle speed = new Rectangle(345, 350, 10, 10);
-        Rectangle losepoint = new Rectangle(126, 300, 20, 20);
+        Rectangle losepoint = new Rectangle(186, 100, 18, 18);
         Rectangle border = new Rectangle(5, 5, 600, 400);
 
         int player1Score = 0;
