@@ -146,6 +146,111 @@ namespace SpuareChaserGame
 
         private void gameTimer_Tick(object sender, EventArgs e)
         {
+            if (player1.X > 650)
+            {
+                player1.X = 300;
+                player1.Y = 150;
+            }
+            else if (player1.Y > 450)
+            {
+                player1.X = 300;
+                player1.Y = 150;
+            }
+            else if (player1.X < -15)
+            {
+                player1.X = 300;
+                player1.Y = 150;
+            }
+            else if (player1.Y < -15)
+            {
+                player1.X = 300;
+                player1.Y = 150;
+            }
+
+            if (player2.X > 650)
+            {
+                player2.X = 300;
+                player2.Y = 150;
+            }
+            else if (player2.Y > 450)
+            {
+                player2.X = 300;
+                player2.Y = 150;
+            }
+            else if (player2.X < -15)
+            {
+                player2.X = 300;
+                player2.Y = 150;
+            }
+            else if (player2.Y < -15)
+            {
+                player2.X = 300;
+                player2.Y = 150;
+            }
+
+            if (point.X > 650)
+            {
+                point.X = 300;
+                point.Y = 150;
+            }
+            else if (point.Y > 450)
+            {
+                point.X = 300;
+                point.Y = 150;
+            }
+            else if (point.X < -15)
+            {
+                point.X = 300;
+                point.Y = 150;
+            }
+            else if (point.Y < -15)
+            {
+                point.X = 300;
+                point.Y = 150;
+            }
+
+            if (speed.X > 650)
+            {
+                speed.X = 300;
+                speed.Y = 150;
+            }
+            else if (speed.Y > 450)
+            {
+                speed.X = 300;
+                speed.Y = 150;
+            }
+            else if (speed.X < -15)
+            {
+                speed.X = 300;
+                speed.Y = 150;
+            }
+            else if (speed.Y < -15)
+            {
+                speed.X = 300;
+                speed.Y = 150;
+            }
+
+            if (losepoint.X > 650)
+            {
+                losepoint.X = 300;
+                losepoint.Y = 150;
+            }
+            else if (losepoint.Y > 450)
+            {
+                losepoint.X = 300;
+                losepoint.Y = 150;
+            }
+            else if (losepoint.X < -15)
+            {
+                losepoint.X = 300;
+                losepoint.Y = 150;
+            }
+            else if (losepoint.Y < -15)
+            {
+                losepoint.X = 300;
+                losepoint.Y = 150;
+            }
+
             gameState = "Running";
             //move player 1 
             if (wDown == true && player1.Y > 0)
